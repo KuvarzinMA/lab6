@@ -8,7 +8,7 @@
 #include <string>
 #include <algorithm>
 
-// Однонаправленный список
+// РћРґРЅРѕРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє
 class SinglyLinkedList {
 private:
     struct Node {
@@ -28,7 +28,7 @@ public:
     void printList();
 };
 
-// Двунаправленный список
+// Р”РІСѓРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє
 class DoublyLinkedList {
 private:
     struct Node {
