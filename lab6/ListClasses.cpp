@@ -1,6 +1,6 @@
 #include "ListClasses.h"
 
-// ----------- Реализация однонаправленного списка -----------
+// ----------- Р РµР°Р»РёР·Р°С†РёСЏ РѕРґРЅРѕРЅР°РїСЂР°РІР»РµРЅРЅРѕРіРѕ СЃРїРёСЃРєР° -----------
 SinglyLinkedList::~SinglyLinkedList() {
     Node* current = head;
     while (current) {
@@ -66,7 +66,7 @@ void SinglyLinkedList::printList() {
     std::cout << std::endl;
 }
 
-// ----------- Реализация двунаправленного списка -----------
+// ----------- Р РµР°Р»РёР·Р°С†РёСЏ РґРІСѓРЅР°РїСЂР°РІР»РµРЅРЅРѕРіРѕ СЃРїРёСЃРєР° -----------
 DoublyLinkedList::~DoublyLinkedList() {
     Node* current = head;
     while (current) {
