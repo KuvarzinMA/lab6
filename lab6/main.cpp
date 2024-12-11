@@ -3,7 +3,7 @@
 
 int main() {
     setlocale(LC_ALL, "RUSSIAN");
-    // Задание 1: Однонаправленный список
+    // Р—Р°РґР°РЅРёРµ 1: РћРґРЅРѕРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє
     SinglyLinkedList sList;
     sList.addElement(10);
     sList.addElement(20);
@@ -11,16 +11,16 @@ int main() {
     sList.addElement(52);
     sList.addElement(30333);
     sList.addElement(2024);
-    std::cout << "Однонаправленный список до переноса: ";
+    std::cout << "РћРґРЅРѕРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє РґРѕ РїРµСЂРµРЅРѕСЃР°: ";
     sList.printList();
 
     sList.moveFirstToEnd();
-    std::cout << "Однонаправленный список после переноса: ";
+    std::cout << "РћРґРЅРѕРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє РїРѕСЃР»Рµ РїРµСЂРµРЅРѕСЃР°: ";
     sList.printList();
 
 
 
-    // Задание 2: Двунаправленный список
+    // Р—Р°РґР°РЅРёРµ 2: Р”РІСѓРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє
     DoublyLinkedList dList;
     dList.addElement(1);
     dList.addElement(2);
@@ -29,11 +29,11 @@ int main() {
     dList.addElement(1);
     dList.addElement(6);
     dList.addElement(1);
-    std::cout << "\nДвунаправленный список до удаления: ";
+    std::cout << "\nР”РІСѓРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє РґРѕ СѓРґР°Р»РµРЅРёСЏ: ";
     dList.printList();
 
     dList.removeNodesWithEqualNeighbors();
-    std::cout << "Двунаправленный список после удаления: ";
+    std::cout << "Р”РІСѓРЅР°РїСЂР°РІР»РµРЅРЅС‹Р№ СЃРїРёСЃРѕРє РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ: ";
     dList.printList();
 
     return 0;
