@@ -1,7 +1,11 @@
+#ifndef LISTCLASSES_TPP
+#define LISTCLASSES_TPP
+
 #include "ListClasses.h"
 
 // ----------- Реализация однонаправленного списка -----------
-SinglyLinkedList::~SinglyLinkedList() {
+template <typename T>
+SinglyLinkedList<T>::~SinglyLinkedList() {
     Node* current = head;
     while (current) {
         Node* toDelete = current;
@@ -10,12 +14,12 @@ SinglyLinkedList::~SinglyLinkedList() {
     }
 }
 
-void SinglyLinkedList::addElement(int value) {
+template <typename T>
+void SinglyLinkedList<T>::addElement(const T& value) {
     Node* newNode = new Node(value);
     if (!head) {
         head = newNode;
-    }
-    else {
+    } else {
         Node* temp = head;
         while (temp->next) {
             temp = temp->next;
@@ -24,7 +28,8 @@ void SinglyLinkedList::addElement(int value) {
     }
 }
 
-void SinglyLinkedList::removeElement(int value) {
+template <typename T>
+void SinglyLinkedList<T>::removeElement(const T& value) {
     if (!head) return;
     if (head->data == value) {
         Node* toDelete = head;
@@ -43,7 +48,8 @@ void SinglyLinkedList::removeElement(int value) {
     }
 }
 
-void SinglyLinkedList::moveFirstToEnd() {
+template <typename T>
+void SinglyLinkedList<T>::moveFirstToEnd() {
     if (!head || !head->next) return;
 
     Node* first = head;
@@ -57,7 +63,8 @@ void SinglyLinkedList::moveFirstToEnd() {
     temp->next = first;
 }
 
-void SinglyLinkedList::printList() {
+template <typename T>
+void SinglyLinkedList<T>::printList() const {
     Node* current = head;
     while (current) {
         std::cout << current->data << " ";
@@ -67,7 +74,8 @@ void SinglyLinkedList::printList() {
 }
 
 // ----------- Реализация двунаправленного списка -----------
-DoublyLinkedList::~DoublyLinkedList() {
+template <typename T>
+DoublyLinkedList<T>::~DoublyLinkedList() {
     Node* current = head;
     while (current) {
         Node* toDelete = current;
@@ -76,19 +84,20 @@ DoublyLinkedList::~DoublyLinkedList() {
     }
 }
 
-void DoublyLinkedList::addElement(int value) {
+template <typename T>
+void DoublyLinkedList<T>::addElement(const T& value) {
     Node* newNode = new Node(value);
     if (!head) {
         head = tail = newNode;
-    }
-    else {
+    } else {
         tail->next = newNode;
         newNode->prev = tail;
         tail = newNode;
     }
 }
 
-void DoublyLinkedList::removeElement(int value) {
+template <typename T>
+void DoublyLinkedList<T>::removeElement(const T& value) {
     if (!head) return;
 
     Node* current = head;
@@ -100,19 +109,18 @@ void DoublyLinkedList::removeElement(int value) {
     if (current == head) {
         head = head->next;
         if (head) head->prev = nullptr;
-    }
-    else if (current == tail) {
+    } else if (current == tail) {
         tail = tail->prev;
         if (tail) tail->next = nullptr;
-    }
-    else {
+    } else {
         current->prev->next = current->next;
         current->next->prev = current->prev;
     }
     delete current;
 }
 
-void DoublyLinkedList::removeNodesWithEqualNeighbors() {
+template <typename T>
+void DoublyLinkedList<T>::removeNodesWithEqualNeighbors() {
     if (!head || !head->next) return;
 
     Node* current = head->next;
@@ -123,8 +131,7 @@ void DoublyLinkedList::removeNodesWithEqualNeighbors() {
             current->next->prev = current->prev;
             current = current->next;
             delete toDelete;
-        }
-        else {
+        } else {
             current = current->next;
         }
     }
@@ -133,7 +140,8 @@ void DoublyLinkedList::removeNodesWithEqualNeighbors() {
     }
 }
 
-void DoublyLinkedList::printList() {
+template <typename T>
+void DoublyLinkedList<T>::printList() const {
     Node* current = head;
     while (current) {
         std::cout << current->data << " ";
@@ -141,3 +149,5 @@ void DoublyLinkedList::printList() {
     }
     std::cout << std::endl;
 }
+
+#endif // LISTCLASSES_TPP
